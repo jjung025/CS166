@@ -1,4 +1,4 @@
-Final Database Project:
+# Final Database Project:
 
 Created a database for a Cafe that includes convenient and simplified features allowing for employees to see status of all incoming orders and to provide a better service experience. 
 
