@@ -249,19 +249,20 @@ public class Cafe {
 
          boolean keepon = true;
          while(keepon) {
-            // These are sample SQL statements
+            // Display Login options
             System.out.println("MAIN MENU");
             System.out.println("---------");
             System.out.println("1. Create user");
             System.out.println("2. Log in");
             System.out.println("9. < EXIT");
+	    //Check if login/username creation is valid	and display the menu options	 
             authorisedUser = null;
             switch (readChoice()){
                case 1: CreateUser(esql); break;
                case 2: authorisedUser = LogIn(esql); break;
                case 9: keepon = false; break;
                default : System.out.println("Unrecognized choice!"); break;
-            }//end switch
+            }//end switch 
             if (authorisedUser != null) {
               boolean usermenu = true;
               String user_type = find_type(esql,authorisedUser);
@@ -449,7 +450,11 @@ public class Cafe {
    	return null;
    	}
    }
-
+   
+   /*
+    * Browse menu items by name
+    * Displays matches
+    **/	
    public static void BrowseMenuName(Cafe esql){ //done
    	try{
       	Scanner reader = new Scanner(System.in); //Reads from System in, user input
@@ -474,6 +479,10 @@ public class Cafe {
 
    }//end
 
+   /*
+    * Browse menu items by type
+    * Displays matches
+    **/	
    public static void BrowseMenuType(Cafe esql){ //done
    	try{
       	Scanner reader = new Scanner(System.in); //Reads from user
@@ -530,8 +539,12 @@ public class Cafe {
    	}*/
    }//end 
 
-   public static void UpdateOrder(Cafe esql){ //Customer can update Comments for their orders 
-      // Your code goes here.
+   /*
+    * Customer can updae comments for their order
+    * 
+    **/
+   public static void UpdateOrder(Cafe esql){ 
+     //Customer can update Comments for their orders 
      try{
    	Scanner reader = new Scanner(System.in); //Reads from user
    	System.out.println("Enter Order ID you want to update the comments of.");
@@ -551,6 +564,9 @@ public class Cafe {
    	
    }//end
 
+    /*
+    * Employees are able to update the status of a customers order
+    **/
    public static void EmployeeUpdateOrder(Cafe esql){
 	try{
    	Scanner reader = new Scanner(System.in); //Reads from user
@@ -643,7 +659,6 @@ public class Cafe {
    }//end
 
    public static void UpdateMenu(Cafe esql){
-      // Your code goes here.
       	try{
       	   canner reader = new Scanner(System.in); //Reads from user
    	      System.out.println("Enter 1 if you want to add item to Menu.");
@@ -672,6 +687,10 @@ public class Cafe {
       }
    }//end
 
+   /*
+    * View the status of a requested order
+    * Displays all possible matches for search key
+    **/
    public static void ViewOrderStatus(Cafe esql,String userName){ //Done
 	try{
 	System.out.print("What order do you want to look at?");
@@ -686,6 +705,10 @@ public class Cafe {
 
    }//end
 
+   /*
+    * Pulls all current orders via their timestamps
+    * Displays current orders with their status
+    **/
    public static void ViewCurrentOrder(Cafe esql){//Looks at all orders within 24 hours that aren't paid.
       // Your code goes here.
       try{
